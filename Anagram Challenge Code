@@ -1,3 +1,10 @@
+/*My solution to an anagram problem. Two string of nonequal and equal lengths. The goal is to determine how many letters need to be
+deleted from the larger string to make the larger string an anagram of the shorter string. My approach was to convert the strings
+to char arrays, create nested loops for both arrays, and if a match is detected, set the matches to '0' in each array and increment
+a match counter by 2. The total amount of letters in both strings minus the number of matches equals the number of letters to be 
+deleted to make both strings anagrams of one another. */
+
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -38,7 +45,7 @@ public class Solution {
                 for(int j = 0; j < first.length(); j++){
                     
                     if(firstchararray[j] == secondchararray[i]){
-                        
+                    
                         match += 2;
                         firstchararray[j] = '0';
                         secondchararray[i] = '0';
