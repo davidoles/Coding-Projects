@@ -1,0 +1,64 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+public class Solution {
+    public static int numberNeeded(String first, String second) {
+        
+        char[] firstchararray = first.toCharArray();
+        char[] secondchararray = second.toCharArray();
+        int totalletters = first.length() + second.length();
+        int match = 0;
+        int numtodelete = 0;
+        
+        if (first.length() <= second.length()){
+            
+            for(int i = 0; i < first.length(); i++){
+                
+                for(int j = 0; j < second.length(); j++){
+                    
+                    if(firstchararray[i] == secondchararray[j]){
+                        
+                        match += 2;
+                        firstchararray[i] = '0';
+                        secondchararray[j] = '0';
+                        break;
+                        
+                    }
+                }
+            }
+        }
+            
+        else               //if(first.length() > second.length())
+        {
+            
+            for(int i = 0; i < second.length(); i++){
+                
+                for(int j = 0; j < first.length(); j++){
+                    
+                    if(firstchararray[j] == secondchararray[i]){
+                        
+                        match += 2;
+                        firstchararray[j] = '0';
+                        secondchararray[i] = '0';
+                        break;
+                        
+                    }
+                }
+            }          
+        } 
+        
+        numtodelete = totalletters - match;
+        
+        return numtodelete;
+    
+    }
+  
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String a = in.next();
+        String b = in.next();
+        System.out.println(numberNeeded(a, b));
+    }
+}
